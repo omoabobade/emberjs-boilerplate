@@ -1,0 +1,20 @@
+{{#if session.isAuthenticated}}
+    <li class="nav-item">
+        <a class="nav-login logoutBtn" {{action 'signout'}} >LOGOUT</a>
+    </li>
+{{else}}
+    <li class="nav-item">
+        <a class="nav-login login-link" href="#" {{action "toggleLoginForm"}}>LOGIN</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-register register-link" href="#" {{action "toggleRegisterForm"}}>SIGN UP</a>
+    </li>
+{{/if}}
+
+{{#if showLogin}}
+    {{login-form}}
+{{/if}}
+{{#if showRegister}}
+    {{register-form}}
+{{/if}}
+{{outlet}}

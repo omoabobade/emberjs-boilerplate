@@ -1,0 +1,55 @@
+    {{#if loading}}
+      {{gif-loader}}
+    {{/if}}
+  {{#if done}}
+<div class="padded10" style="text-align:center;">
+  <img  src="images/tick.png" />
+  <p>
+Yay!  Your account has been created. Thanks you for choosing Dhani for your physical wellbeing. Your body willl love you.
+  </p>
+</div>
+<button {{action "closeModal" }} class="btn btn-primary btn-block btn-flat" >DONE</button>
+{{else if validateOtp}}
+
+  {{else}}
+  {{#if registerError}}
+    <div class="login-err alert alert-error">{{registerError}}!</div>
+  {{/if}}
+<form method="post" >
+  <div class="padded10">
+    <div class="row">
+      <div class="col-sm-6 pull-left">
+        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up </a>
+      </div>
+      <div class="col-sm-6 pull-right">
+        <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up</a>
+      </div>
+         <div class="clearfix"></div>
+    </div>
+<br />
+      <div class="form-group">
+        {{input type="text" id="full_name" required="required" class="form-control" value=full_name placeholder="Full Name"}}
+      </div>
+      <div class="form-group">
+        {{input type="email" id="email" required="required" class="form-control" value=email placeholder="Email"}}
+      </div>
+      <div class="form-group has-feedback">
+        {{input type="text" id="mobile_number" required="required" class="form-control" value=mobile_number placeholder="Mobile Number"}}
+      </div>
+      <div class="form-group has-feedback">
+         {{input type="password" id="password" required="required" class="form-control" value=password placeholder="Password"}}
+      </div>
+      <div class="form-group has-feedback">
+        {{input type="password" id="confirm_password" required="required" class="form-control" value=confirm_password placeholder="Confirm Password"}}
+      </div>
+      <div class="form-group has-feedback">
+        <select class="form-control"  onchange={{action (mut roleid) value="target.value"}}  >
+          <option>Register As</option>
+          <option value="4">User</option>
+          <option value="1">Doctor</option>
+        </select>
+      </div>
+      </div>
+      <button {{action "register"}}  class="btn btn-primary btn-block btn-flat">Register</button>
+    </form>
+    {{/if}}

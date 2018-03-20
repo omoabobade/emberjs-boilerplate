@@ -1,0 +1,27 @@
+{{#if session.isAuthenticated}}
+Welcome User
+{{else}}
+    {{#if loginError}}
+          <div class="login-err alert alert-error">Username or password incorrect!</div>
+      {{/if}}
+      <form method="post" id="loginForm">
+        <div class="padded10">
+                <div class="form-group has-feedback">
+                      {{input
+                value=identification
+                placeholder="Email Address or Phone Number"
+                autocomplete="email"
+                class="username-field form-control"}}
+                  </div>
+                  <div class="form-group has-feedback">
+                      {{input
+                type="password"
+                placeholder="Password"
+                value=password autocomplete="current-password"
+                class="password-field form-control"}}
+                  </div>
+                  <a href="#" {{action "toggleLogin"}}  class="pull-right forgot-password">Forgot Password?</a><br>
+            </div>
+              <button type="submit" {{action "login"}} class="btn btn-primary btn-block btn-flat login-btn">LOGIN</button>
+          </form>
+{{/if}}
